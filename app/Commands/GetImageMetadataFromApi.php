@@ -16,7 +16,7 @@ class GetImageMetadataFromApi extends Command
      *
      * @var string
      */
-    protected $signature = 'app:get-image-metadata-from-api {--date=}';
+    protected $signature = 'images:get-image-metadata-from-api {--date=}';
 
     /**
      * The console command description.

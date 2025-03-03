@@ -16,7 +16,7 @@ class UpdateImageTables extends Command
      *
      * @var string
      */
-    protected $signature = 'app:update-image-tables {--all}';
+    protected $signature = 'images:update-image-tables {--all}';
 
     /**
      * The console command description.
