@@ -1,0 +1,12 @@
+/vendor
+/storage
+/.idea
+/.vscode
+/.vagrant
+.phpunit.result.cache
+/database/database.sqlite
+.env
+box.json
+phpunit.xml.dist
+.editorconfig
+
