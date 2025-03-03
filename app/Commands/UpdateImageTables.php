@@ -32,12 +32,12 @@ class UpdateImageTables extends Command
     {
         $this->task('Get image metadata from API', function () {
             if ($this->option('all')) {
-                $this->callSilent('app:get-image-metadata-from-api');
+                $this->callSilent('images:get-image-metadata-from-api');
                 return true;
             }
             else {
                 $from = DB::table('canto.images')->max('updated_at');
-                $this->callSilent('app:get-image-metadata-from-api', [
+                $this->callSilent('images:get-image-metadata-from-api', [
                     '--date' => $from
                 ]);
                 return true;
