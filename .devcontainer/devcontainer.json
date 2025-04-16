@@ -1,0 +1,15 @@
+{
+  "name": "Laradock",
+  "dockerComposeFile": "../../laradock/docker-compose.yml",
+  "runServices": [
+    "nginx",
+    "postgres-postgis",
+    "solr",
+    "geoserver"
+  ],
+  "remoteUser": "laradock",
+  "service": "workspace",
+  "workspaceFolder": "/var/www/vicflora-images",
+  "shutdownAction": "stopCompose",
+  "postCreateCommand": "uname -a"
+}
