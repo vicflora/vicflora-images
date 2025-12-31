@@ -57,8 +57,13 @@ class UpdateImageTables extends Command
         if ($this->option('all')) {
             $this->task('Soft-delete old images', function () {
                 (new SoftDeleteOldImageRecords)();
+                return true;
             });
-            return true;
+
+            $this->task('Reset all taxon concept–image links', function() {
+                $this->callSilent('app:recreate-taxon-concept-images');
+                return true;
+            });
         }
     }
 
@@ -67,6 +72,10 @@ class UpdateImageTables extends Command
      */
     public function schedule(Schedule $schedule): void
     {
-        // $schedule->command(static::class)->everyMinute();
+        $schedule->command('images:update-image-tables')
+            ->everyThirtyMinutes()->withoutOverlapping();
+
+        $schedule->command('images:update-image-tables', ['--all' => true])
+            ->dailyAt('04:00')->timezone('Australia/Melbourne');
     }
 }

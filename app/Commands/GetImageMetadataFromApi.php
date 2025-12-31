@@ -154,10 +154,6 @@ class GetImageMetadataFromApi extends Command
      */
     public function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:get-image-metadata-from-api')
-            ->everyTwoMinutes()->withoutOverlapping();
-
-        $schedule->command('app:get-image-metadata-from-api', ['--all' => true])
-            ->dailyAt('04:00')->timezone('Australia/Melbourne');
+        //
     }
 }
